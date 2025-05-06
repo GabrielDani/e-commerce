@@ -112,3 +112,28 @@ export const cardVariants = cva(
 );
 
 export type CardVariant = VariantProps<typeof cardVariants>;
+
+export const filterButtonVariants = cva(
+  "bg-background-button hover:bg-hover-background-button cursor-pointer py-1 px-4 transition-colors",
+  {
+    variants: {
+      rounded: {
+        none: "rounded-none",
+        left: "rounded-l-lg",
+        right: "rounded-r-lg",
+        both: "rounded-lg",
+        all: "rounded-lg",
+      },
+      selected: {
+        true: "bg-selected-radio text-white hover:bg-selected-radio-dark",
+        false: "",
+      },
+    },
+    defaultVariants: {
+      rounded: "all",
+      selected: false,
+    },
+  }
+);
+
+export type FilterButtonProps = VariantProps<typeof filterButtonVariants>;

@@ -20,6 +20,9 @@
   --color-surface: #c8c8c8; /* Cards, inputs, modais */
   --color-surface-dark: #07284a; /* fundo de cards em dark */
 
+  --color-selected-radio: #2332b6;
+  --color-selected-radio-dark: #2332b6;
+
   /* Neutros e bordas */
   --color-neutral: #7c7c7c; /* Separadores e hovers leves */
   --color-neutral-dark: #0a3f70; /* Neutral em dark (coerente com bg) */
