@@ -89,3 +89,26 @@ export const buttonVariants = cva(
 );
 
 export type ButtonVariant = VariantProps<typeof buttonVariants>;
+
+export const cardVariants = cva(
+  "rounded-lg shadow-xl border-2 transition-colors",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-surface dark:bg-surface-dark shadow-neutral dark:shadow-neutral-dark border-border dark:border-border-dark",
+        subtle: "bg-background text-primary border-border",
+      },
+      size: {
+        sm: "w-48 p-2",
+        md: "w-64 p-4",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "sm",
+    },
+  }
+);
+
+export type CardVariant = VariantProps<typeof cardVariants>;

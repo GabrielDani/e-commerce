@@ -1,4 +1,6 @@
 import { Button } from "@/components/atoms/Button";
+import { Card } from "@/components/atoms/Card";
+import { Image } from "@/components/atoms/Image";
 import type { Product } from "@/types/product";
 import { ShoppingCart } from "lucide-react";
 
@@ -10,11 +12,11 @@ export const ProductCard = ({
   feminine,
   price,
 }: Product) => (
-  <article className="card-product group flex flex-col justify-around w-48 rounded-lg bg-surface dark:bg-surface-dark shadow-xl shadow-neutral dark:shadow-neutral-dark border-2 border-border dark:border-border-dark">
-    <img
+  <Card className="group flex flex-col justify-around" size="sm">
+    <Image
       src={image}
       alt={`Imagem do produto ${id}`}
-      className="group-hover:scale-110 rounded-lg mx-4 my-3 transition duration-300"
+      className="group-hover:scale-110 mx-4 my-3 transition-transform duration-300"
     />
     <p className="mx-4 text-sm text-secondary font-semibold">{name}</p>
     <p className="mx-4 text-sm">{brand}</p>
@@ -25,5 +27,5 @@ export const ProductCard = ({
       size={"sm"}
       icon={<ShoppingCart className="w-4 h-4" />}
     />
-  </article>
+  </Card>
 );
