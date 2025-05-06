@@ -8,9 +8,9 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-white dark:bg-gray-900 shadow-md">
+    <header className="w-full bg-background-primary dark:bg-background-primary-dark shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <Logo />
+        <Logo to="/" logoText="Gabriel Dani" ariaLabel="Home" />
 
         <nav className="hidden md:flex gap-6 items-center">
           <NavLink to="/products">Produtos</NavLink>

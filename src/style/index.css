@@ -1,1 +1,55 @@
 @import "tailwindcss";
+
+@theme {
+  /* Planos de fundo */
+  --color-background-primary: #3574c0; /* usado no header, botões principais */
+  --color-background-primary-dark: #b9defe; /* usado no modo escuro para contraste */
+
+  --color-background-secondary: #7eabe7; /* Destaques secundários, CTAs */
+  --color-background-secondary-dark: #2332b6; /* Versão mais suave em dark */
+
+  --color-background: #f9fafb; /* fundo geral: cinza bem claro */
+  --color-background-dark: #0a3f70; /* escuro mas não absoluto */
+
+  --color-surface: #ffffff; /* Cards, inputs, modais */
+  --color-surface-dark: #07284a; /* fundo de cards em dark */
+
+  /* Neutros e bordas */
+  --color-neutral: #e5e7eb; /* Separadores e hovers leves */
+  --color-neutral-dark: #0a3f70; /* Neutral em dark (coerente com bg) */
+
+  --color-border: #d1d5db; /* Bordas sutis */
+  --color-border-dark: #b9defe; /* Versão visível em fundo escuro */
+
+  /* Tipografia */
+  --color-primary-dark: #f0f7ff; /* texto claro no dark */
+  --color-primary: #1f2937; /* Texto principal */
+
+  --color-secondary: #6b7280; /* Textos de apoio */
+  --color-secondary-dark: #dfeeff; /* leve contraste */
+
+  --color-ghost: #9ca3af; /* discreto, leitura reduzida */
+  --color-ghost-dark: #b9defe; /* suave, visível sobre fundo escuro */
+
+  --color-accent: #e63946; /* Erros, alertas, badges */
+  --color-accent-dark: #f87171; /* Versão em dark */
+
+  --color-inverse: #ffffff; /* Texto sobre fundo escuro */
+  --color-inverse-dark: #07284a; /* Texto escuro sobre tons claros */
+
+  /* Hover para texto */
+  --color-hover-primary: #003f7f;
+  --color-hover-primary-dark: #91cfff;
+
+  --color-hover-secondary: #5b8ac4;
+  --color-hover-secondary-dark: #4e5cd1;
+
+  --color-hover-accent: #c53030;
+  --color-hover-accent-dark: #fb5f5f;
+
+  --color-hover-ghost: #374151; /* text-gray-700 */
+  --color-hover-ghost-dark: #e5efff;
+
+  --color-hover-muted: #9ca3af; /* text-gray-400 */
+  --color-hover-muted-dark: #cbd5e1;
+}

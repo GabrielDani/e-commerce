@@ -1,23 +1,28 @@
+import { logoVariants, type LogoVariant } from "@/lib/class-variants";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
 interface LogoProps {
+  to: string;
+  logoText: string;
+  variant?: LogoVariant;
   className?: string;
-  link?: string;
-  logoText?: string;
-  logoColor?: string;
-  ariaLabel?: string;
+  ariaLabel: string;
 }
 
 export const Logo = ({
-  className = "text-2xl font-bold",
-  link = "/",
-  logoText = "Gabriel Dani",
-  logoColor = "text-blue-600 dark:text-blue-400",
-  ariaLabel = "Home",
+  to,
+  logoText,
+  variant,
+  className,
+  ariaLabel,
 }: LogoProps) => {
   return (
-    <Link to={link} className={cn(logoColor, className)} aria-label={ariaLabel}>
+    <Link
+      to={to}
+      className={cn(logoVariants(variant), className)}
+      aria-label={ariaLabel}
+    >
       {logoText}
     </Link>
   );

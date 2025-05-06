@@ -1,34 +1,27 @@
-import { Slot } from "@radix-ui/react-slot";
 import { Link, useMatch } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { navLinkVariants, type NavLinkVariant } from "@/lib/class-variants";
+import type React from "react";
 
-interface NavLinkProps extends React.HTMLAttributes<HTMLElement> {
+type NavLinkProps = {
   to: string;
-  children: React.ReactNode;
+  variant?: NavLinkVariant;
+  children?: React.ReactNode;
   className?: string;
-  isActiveClassName?: string;
-  asChild?: boolean;
-}
+};
 
-export const NavLink = ({
-  to,
-  children,
-  className = "text-gray-700 dark:text-gray-200 hover:text-blue-500 transition-colors",
-  isActiveClassName = "font-semibold text-blue-600",
-  asChild = false,
-  ...props
-}: NavLinkProps) => {
-  const isActive = useMatch(to);
-  const Comp = asChild ? Slot : Link;
+export const NavLink = ({ to, variant, children, className }: NavLinkProps) => {
+  const match = useMatch(to);
+  const isActive = match?.pathname === to;
 
   return (
-    <Comp
+    <Link
       to={to}
-      className={cn(className, isActive && isActiveClassName)}
+      className={cn(navLinkVariants({ variant }), className)}
+      data-active={isActive}
       aria-current={isActive ? "page" : undefined}
-      {...props}
     >
       {children}
-    </Comp>
+    </Link>
   );
 };
