@@ -8,6 +8,15 @@
   --color-background-secondary: #f6f6f6; /* Destaques secundários, CTAs */
   --color-background-secondary-dark: #2332b6; /* Versão mais suave em dark */
 
+  --color-background-header: #61bcf9;
+  --color-background-header-dark: #1f4a89;
+
+  --color-background-button: #61bcf9;
+  --color-background-button-dark: #3c9ef5;
+
+  --color-hover-background-button: #3c9ef5;
+  --color-hover-background-button-dark: #94d5fc;
+
   --color-surface: #c8c8c8; /* Cards, inputs, modais */
   --color-surface-dark: #07284a; /* fundo de cards em dark */
 

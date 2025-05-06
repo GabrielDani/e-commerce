@@ -64,7 +64,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-background-primary text-primary hover:bg-background-secondary dark:bg-background-primary-dark dark:hover:bg-background-secondary-dark",
+          "bg-background-button text-primary hover:bg-hover-background-button dark:bg-background-button-dark dark:hover:bg-hover-background-button-dark",
         secondary:
           "bg-background-secondary text-inverse hover:bg-secondary/90 dark:bg-secondary-dark dark:hover:bg-secondary-dark/90",
         ghost:
