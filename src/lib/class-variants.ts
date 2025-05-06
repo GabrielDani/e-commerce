@@ -51,3 +51,35 @@ export const logoVariants = cva("font-bold", {
 });
 
 export type LogoVariant = VariantProps<typeof logoVariants>;
+
+export const buttonVariants = cva(
+  "inline-flex items-center justify-center rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-primary text-inverse hover:bg-primary/90 dark:bg-primary-dark dark:hover:bg-primary-dark/90",
+        secondary:
+          "bg-secondary text-inverse hover:bg-secondary/90 dark:bg-secondary-dark dark:hover:bg-secondary-dark/90",
+        ghost:
+          "bg-transparent hover:bg-neutral/20 dark:hover:bg-neutral-dark/20",
+        outline:
+          "border border-border text-primary hover:bg-neutral/10 dark:text-primary-dark dark:border-border-dark",
+        danger:
+          "bg-accent text-inverse hover:bg-accent/80 dark:bg-accent-dark dark:hover:bg-accent-dark/80",
+      },
+      size: {
+        sm: "h-8 px-3 text-xs",
+        md: "h-10 px-4 text-sm",
+        lg: "h-12 px-6 text-base",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "md",
+    },
+  }
+);
+
+export type ButtonVariant = VariantProps<typeof buttonVariants>;

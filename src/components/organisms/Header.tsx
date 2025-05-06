@@ -1,50 +1,15 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Logo } from "@/components/atoms/Logo";
-import { NavLink } from "@/components/atoms/NavLink";
+import { HeaderMobileMenu } from "../molecules/HeaderMobileMenu";
+import { HeaderNavLinks } from "../molecules/HeaderNavLinks";
+import { HeaderLogo } from "../molecules/HeaderLogo";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <header className="w-full bg-background-primary dark:bg-background-primary-dark shadow-md">
+    <header className="w-full bg-background-primary dark:bg-background-primary-dark shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <Logo to="/" logoText="Gabriel Dani" ariaLabel="Home" />
-
-        <nav className="hidden md:flex gap-6 items-center">
-          <NavLink to="/products">Produtos</NavLink>
-          <NavLink to="/about">Sobre</NavLink>
-          <NavLink to="/contact">Contato</NavLink>
-        </nav>
-
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-gray-700 dark:text-gray-200"
-        >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <HeaderLogo />
+        <HeaderNavLinks />
+        <HeaderMobileMenu />
       </div>
-
-      {menuOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-2 bg-white dark:bg-gray-900">
-          <Link
-            to="/products"
-            className="block text-gray-700 dark:text-gray-200"
-          >
-            Produtos
-          </Link>
-          <Link to="/about" className="block text-gray-700 dark:text-gray-200">
-            Sobre
-          </Link>
-          <Link
-            to="/contact"
-            className="block text-gray-700 dark:text-gray-200"
-          >
-            Contato
-          </Link>
-        </div>
-      )}
     </header>
   );
 };
