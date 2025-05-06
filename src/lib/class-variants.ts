@@ -46,14 +46,13 @@ export const logoVariants = cva("font-bold", {
       lg: "text-3xl",
     },
     color: {
-      default: "text-text-primary dark:text-text-primary-dark",
+      default: "text-primary dark:text-primary-dark",
       inverse: "text-inverse dark:text-inverse-dark",
-      primary: "text-primary dark:text-primary-dark",
     },
   },
   defaultVariants: {
     size: "md",
-    color: "inverse",
+    color: "default",
   },
 });
 
@@ -65,7 +64,7 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-inverse hover:bg-primary/90 dark:bg-primary-dark dark:hover:bg-primary-dark/90",
+          "bg-primary text-primary hover:bg-primary/90 dark:bg-primary-dark dark:hover:bg-primary-dark/90",
         secondary:
           "bg-secondary text-inverse hover:bg-secondary/90 dark:bg-secondary-dark dark:hover:bg-secondary-dark/90",
         ghost:
