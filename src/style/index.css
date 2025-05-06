@@ -8,14 +8,14 @@
   --color-background-secondary: #f6f6f6; /* Destaques secundários, CTAs */
   --color-background-secondary-dark: #2332b6; /* Versão mais suave em dark */
 
-  --color-surface: #7c7c7c; /* Cards, inputs, modais */
+  --color-surface: #c8c8c8; /* Cards, inputs, modais */
   --color-surface-dark: #07284a; /* fundo de cards em dark */
 
   /* Neutros e bordas */
   --color-neutral: #7c7c7c; /* Separadores e hovers leves */
   --color-neutral-dark: #0a3f70; /* Neutral em dark (coerente com bg) */
 
-  --color-border: #6d6d6d; /* Bordas sutis */
+  --color-border: #adadad; /* Bordas sutis */
   --color-border-dark: #b9defe; /* Versão visível em fundo escuro */
 
   /* Tipografia */

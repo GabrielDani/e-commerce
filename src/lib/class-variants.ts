@@ -59,14 +59,14 @@ export const logoVariants = cva("font-bold", {
 export type LogoVariant = VariantProps<typeof logoVariants>;
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
+  "inline-flex items-center justify-center rounded-xl text-sm font-medium transition-colors hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary hover:bg-primary/90 dark:bg-primary-dark dark:hover:bg-primary-dark/90",
+          "bg-background-primary text-primary hover:bg-background-secondary dark:bg-background-primary-dark dark:hover:bg-background-secondary-dark",
         secondary:
-          "bg-secondary text-inverse hover:bg-secondary/90 dark:bg-secondary-dark dark:hover:bg-secondary-dark/90",
+          "bg-background-secondary text-inverse hover:bg-secondary/90 dark:bg-secondary-dark dark:hover:bg-secondary-dark/90",
         ghost:
           "bg-transparent hover:bg-neutral/20 dark:hover:bg-neutral-dark/20",
         outline:
