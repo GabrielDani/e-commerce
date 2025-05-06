@@ -1,7 +1,9 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
+export type IconPositionNavLink = "left" | "right";
+
 export const navLinkVariants = cva(
-  "transition-colors text-sm md:text-base data-[active=true]:font-bold",
+  "inline-flex items-center gap-1 transition-colors text-sm md:text-base data-[active=true]:font-bold",
   {
     variants: {
       variant: {
@@ -22,14 +24,19 @@ export const navLinkVariants = cva(
           "hover:underline hover:text-hover-accent dark:hover:text-hover-accent-dark",
         ],
       },
+      iconPosition: {
+        left: "flex-row",
+        right: "flex-row-reverse",
+      },
     },
     defaultVariants: {
       variant: "default",
+      iconPosition: "left",
     },
   }
 );
 
-export type NavLinkVariant = VariantProps<typeof navLinkVariants>["variant"];
+export type NavLinkVariant = VariantProps<typeof navLinkVariants>;
 
 export const logoVariants = cva("font-bold", {
   variants: {

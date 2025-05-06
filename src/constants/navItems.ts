@@ -1,5 +1,6 @@
+import { History, ShoppingBag } from "lucide-react";
+
 export const navItems = [
-  { to: "/products", label: "Produtos" },
-  { to: "/about", label: "Sobre" },
-  { to: "/contact", label: "Contato" },
+  { to: "/cart", label: "Carrinho", icon: ShoppingBag },
+  { to: "/history", label: "Histórico de Compras", icon: History },
 ];
