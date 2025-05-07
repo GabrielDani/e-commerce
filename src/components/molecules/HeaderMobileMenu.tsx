@@ -30,7 +30,7 @@ export const HeaderMobileMenu = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute right-0 top-full mt-2 w-fit rounded-md bg-background-secondary dark:bg-background-secondary-dark shadow-lg py-2 px-4 space-y-2 z-50"
+            className="absolute right-0 top-full mt-2 w-fit rounded-md bg-background-secondary dark:bg-background-secondary-dark shadow-lg py-2 px-4 space-y-4 z-50"
           >
             {navItems.map((item) => (
               <NavLink
@@ -38,9 +38,8 @@ export const HeaderMobileMenu = () => {
                 to={item.to}
                 className="block"
                 onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </NavLink>
+                icon={item.icon}
+              />
             ))}
           </motion.div>
         )}
