@@ -1,4 +1,3 @@
-import { HeaderMobileMenu } from "../molecules/HeaderMobileMenu";
 import { HeaderNavLinks } from "../molecules/HeaderNavLinks";
 import { HeaderLogo } from "../molecules/HeaderLogo";
 import { useLocation } from "react-router-dom";
@@ -13,7 +12,7 @@ const Header = () => {
         {pathname === "/" && (
           <>
             <HeaderNavLinks />
-            <HeaderMobileMenu />
+            {/* <HeaderMobileMenu /> */}
           </>
         )}
       </div>

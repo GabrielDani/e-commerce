@@ -1,5 +1,5 @@
+import { ProductCard } from "@/components/molecules/ProductCard/ProductCard";
 import { catalog } from "@/data/catalog";
-import { ProductCard } from "./ProductCard";
 
 export function ProductContainer() {
   return (

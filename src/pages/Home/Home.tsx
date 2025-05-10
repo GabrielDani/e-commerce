@@ -1,12 +1,10 @@
-import { RightSidebar } from "@/components/molecules/RightSidebar";
 import { MainSection } from "./components/MainSection";
+import { CartSidebar } from "@/components/organisms/CartSidebar";
 
 export default function Home() {
   return (
     <>
-      <RightSidebar>
-        <p>conteudo</p>
-      </RightSidebar>
+      <CartSidebar />
       <MainSection />
     </>
   );

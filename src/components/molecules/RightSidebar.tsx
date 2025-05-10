@@ -1,19 +1,19 @@
-import { useState } from "react";
 import { Overlay } from "../atoms/Overlay";
+import { useCart } from "@/contexts/CartContext";
 
 interface RightSidebarProps {
   children: React.ReactNode;
 }
 
 export const RightSidebar = ({ children }: RightSidebarProps) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { isOpen, closeCart } = useCart();
 
   return (
-    <Overlay isOpen={isSidebarOpen}>
+    <Overlay isOpen={isOpen}>
       <section
         id="outside-of-sidebar"
         className="w-3/4 bg-background-primary opacity-50"
-        onClick={() => setIsSidebarOpen(false)}
+        onClick={() => closeCart()}
       ></section>
       <section
         id="sidebar"
