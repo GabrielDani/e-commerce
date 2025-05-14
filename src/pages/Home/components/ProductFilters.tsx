@@ -1,39 +1,70 @@
 import { RadioButton } from "@/components/atoms/RadioButton";
-import { useState } from "react";
+
+interface ProductFiltersProps {
+  searchParams: URLSearchParams;
+  setSearchParams: (params: URLSearchParams) => void;
+}
 
 type FilterOption = {
   id: string;
-  value: string;
+  value: string | null;
   label: string;
 };
 
-const filterOptions: FilterOption[] = [
-  { id: "filter-0", value: "all", label: "Todos" },
-  { id: "filter-1", value: "male", label: "Masculino" },
-  { id: "filter-2", value: "female", label: "Feminino" },
+const FILTER_OPTIONS: FilterOption[] = [
+  {
+    id: "filter-0",
+    value: null,
+    label: "Todos",
+  },
+  {
+    id: "filter-1",
+    value: "masc",
+    label: "Masculino",
+  },
+  {
+    id: "filter-2",
+    value: "fem",
+    label: "Feminino",
+  },
 ];
 
-export function ProductFilters() {
-  const [selectedFilter, setSelectedFilter] = useState("all");
+export function ProductFilters({
+  searchParams,
+  setSearchParams,
+}: ProductFiltersProps) {
+  const currentFilter = searchParams.get("filterby");
+
+  const handleFilterChange = (value: string | null) => {
+    const newSearchParams = new URLSearchParams(searchParams);
+
+    if (value) {
+      newSearchParams.set("filterby", value);
+    } else {
+      newSearchParams.delete("filterby");
+    }
+
+    setSearchParams(newSearchParams);
+  };
 
   return (
     <section className="flex justify-center items-center">
-      {filterOptions.map((option, index) => (
+      {FILTER_OPTIONS.map((option, index) => (
         <RadioButton
           key={option.id}
           id={option.id}
           name="filter-selection"
-          value={option.value}
           label={option.label}
+          value={option.value}
           rounded={
             index === 0
               ? "left"
-              : index === filterOptions.length - 1
+              : index === FILTER_OPTIONS.length - 1
               ? "right"
               : "none"
           }
-          checked={selectedFilter === option.value}
-          onChange={(e) => setSelectedFilter(e.target.value)}
+          checked={currentFilter === option.value}
+          onClick={() => handleFilterChange(option.value)}
         />
       ))}
     </section>

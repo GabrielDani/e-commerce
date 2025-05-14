@@ -7,23 +7,23 @@ import { cn } from "@/lib/utils";
 interface RadioButtonProps extends FilterButtonProps {
   id: string;
   name: string;
-  value: string;
   label: string;
-  checked?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string | null;
+  checked: boolean;
   className?: string;
+  onClick: (value: string | null) => void;
 }
 
 export const RadioButton = ({
   id,
   name,
-  value,
   label,
+  value,
   rounded,
   selected,
   checked,
-  onChange,
   className,
+  onClick,
 }: RadioButtonProps) => {
   return (
     <>
@@ -31,10 +31,10 @@ export const RadioButton = ({
         id={id}
         type="radio"
         name={name}
-        value={value}
         checked={checked}
-        onChange={onChange}
         className="hidden"
+        onChange={() => onClick(value)}
+        readOnly
       />
       <label
         htmlFor={id}
