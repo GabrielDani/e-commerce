@@ -1,30 +1,27 @@
 import { useCart } from "@/contexts/CartContext";
-import { Button } from "@/components/atoms/Button";
 import { History, ShoppingBag } from "lucide-react";
-import { Badge } from "@/components/atoms/Badge";
 import { NavLink } from "../atoms/NavLink";
+import { ButtonIcon } from "../atoms/ButtonIcon";
 
 export const HeaderNavLinks = () => {
   const { toggleCart, totalProducts } = useCart();
 
   return (
-    <nav className="flex gap-4 items-center">
+    <nav
+      className={`flex ${totalProducts > 9 ? "gap-6" : "gap-4"} items-center`}
+    >
       {/* Ícone do carrinho */}
       <div className="relative">
-        <Button
-          variant="ghost"
-          size="icon"
+        <ButtonIcon
+          Icon={ShoppingBag}
           onClick={toggleCart}
           aria-label="Abrir carrinho"
-        >
-          <ShoppingBag className="h-4 w-4" />
-          {totalProducts > 0 && (
-            <Badge className="absolute -top-2 -right-2">{totalProducts}</Badge>
-          )}
-        </Button>
+          showBadge={totalProducts > 0}
+          countBadge={totalProducts}
+        />
       </div>
 
-      <NavLink to="/checkout" icon={History} />
+      <NavLink to="/checkout" ariaLabel="checkout" icon={History} />
     </nav>
   );
 };

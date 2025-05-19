@@ -6,7 +6,7 @@ import type { Product } from "@/types/product";
 
 export const ProductCard = (product: Product) => {
   return (
-    <Card className="group transition-all hover:-translate-y-1">
+    <Card>
       <ProductImage {...product} />
       <ProductInfo {...product} />
       <ProductActions {...product} />

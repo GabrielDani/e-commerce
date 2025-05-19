@@ -56,14 +56,15 @@ export function ProductFilters({
           name="filter-selection"
           label={option.label}
           value={option.value}
-          rounded={
-            index === 0
-              ? "left"
-              : index === FILTER_OPTIONS.length - 1
-              ? "right"
-              : "none"
-          }
-          checked={currentFilter === option.value}
+          variants={{
+            selected: currentFilter === option.value,
+            rounded:
+              index === 0
+                ? "left"
+                : index === FILTER_OPTIONS.length - 1
+                ? "right"
+                : "none",
+          }}
           onClick={() => handleFilterChange(option.value)}
         />
       ))}

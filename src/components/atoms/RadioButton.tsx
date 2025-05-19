@@ -1,15 +1,33 @@
-import {
-  filterButtonVariants,
-  type FilterButtonProps,
-} from "@/lib/class-variants";
 import { cn } from "@/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
 
-interface RadioButtonProps extends FilterButtonProps {
+const filterButtonVariants = cva(
+  "bg-background-button-filter hover:bg-background-button-filter-hover cursor-pointer py-1 px-4 transition-colors",
+  {
+    variants: {
+      rounded: {
+        none: "rounded-none",
+        left: "rounded-l-lg",
+        right: "rounded-r-lg",
+      },
+      selected: {
+        true: "bg-background-button-filter-selected text-white",
+        false: "",
+      },
+    },
+    defaultVariants: {
+      rounded: "none",
+      selected: false,
+    },
+  }
+);
+
+interface RadioButtonProps {
+  variants: VariantProps<typeof filterButtonVariants>;
   id: string;
   name: string;
   label: string;
   value: string | null;
-  checked: boolean;
   className?: string;
   onClick: (value: string | null) => void;
 }
@@ -19,9 +37,7 @@ export const RadioButton = ({
   name,
   label,
   value,
-  rounded,
-  selected,
-  checked,
+  variants,
   className,
   onClick,
 }: RadioButtonProps) => {
@@ -31,17 +47,13 @@ export const RadioButton = ({
         id={id}
         type="radio"
         name={name}
-        checked={checked}
         className="hidden"
         onChange={() => onClick(value)}
         readOnly
       />
       <label
         htmlFor={id}
-        className={cn(
-          filterButtonVariants({ rounded, selected: selected || checked }),
-          className
-        )}
+        className={cn(filterButtonVariants(variants), className)}
       >
         {label}
       </label>

@@ -1,22 +1,17 @@
 // components/organisms/CartSidebar.tsx
 import { Button } from "@/components/atoms/Button";
-import { Card } from "@/components/atoms/Card";
 import { RightSidebar } from "@/components/molecules/RightSidebar";
 import { useCart } from "@/contexts/CartContext";
 import { formatValueToPrice } from "@/utils/utils";
 import { X, ShoppingCart, ArrowRight } from "lucide-react";
-import { Image } from "@/components/atoms/Image";
+import { ProductSidebarCard } from "../molecules/ProductCard/ProductSidebarCard";
+import { useNavigate } from "react-router-dom";
 
 export const CartSidebar = () => {
-  const {
-    closeCart,
-    products,
-    totalProducts,
-    totalPrice,
-    removeProduct,
-    updateProductQuantity,
-    clearCart,
-  } = useCart();
+  const { closeCart, products, totalProducts, totalPrice, clearCart } =
+    useCart();
+
+  const navigate = useNavigate();
 
   return (
     <RightSidebar>
@@ -41,83 +36,17 @@ export const CartSidebar = () => {
         {/* Lista de produtos */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {products.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-full text-center text-gray-500">
+            <div className="flex flex-col items-center justify-center h-full text-center text-secondary">
               <ShoppingCart className="w-12 h-12 mb-4" />
-              <p>Seu carrinho está vazio</p>
-              <Button onClick={closeCart} variant="outline" className="mt-4">
-                Continuar comprando
-              </Button>
+              <p className="mb-4">Seu carrinho está vazio</p>
+              <Button
+                text="Continuar comprando"
+                onClick={closeCart}
+                variant={{ variant: "ghost", size: "lg" }}
+              />
             </div>
           ) : (
-            products.map((product) => (
-              <Card
-                key={`${product.id}-${product.name}-`}
-                size="full"
-                className="p-3"
-              >
-                <div className="flex gap-4">
-                  <div className="relative w-20 h-full flex-shrink-0">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      className="object-cover rounded over"
-                    />
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="flex justify-between">
-                      <h4 className="font-medium line-clamp-2">
-                        {product.name}
-                      </h4>
-                      <button
-                        onClick={() => removeProduct(product.id)}
-                        className="text-gray-500 hover:text-red-500"
-                        aria-label="Remover item"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                    <p className="text-sm text-gray-500">{product.brand}</p>
-
-                    <div className="flex items-center justify-between mt-2">
-                      <div className="flex items-center border rounded">
-                        <button
-                          onClick={() =>
-                            updateProductQuantity(
-                              product.id,
-                              product.quantity - 1
-                            )
-                          }
-                          disabled={product.quantity <= 1}
-                          className="px-2 py-1 disabled:opacity-50"
-                          aria-label="Diminuir quantidade"
-                        >
-                          -
-                        </button>
-                        <span className="px-2">{product.quantity}</span>
-                        <button
-                          onClick={() =>
-                            updateProductQuantity(
-                              product.id,
-                              product.quantity + 1
-                            )
-                          }
-                          className="px-2 py-1"
-                          aria-label="Aumentar quantidade"
-                        >
-                          +
-                        </button>
-                      </div>
-
-                      <span className="font-semibold">
-                        {formatValueToPrice(product.price * product.quantity)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            ))
+            products.map((product) => <ProductSidebarCard {...product} />)
           )}
         </div>
 
@@ -126,23 +55,26 @@ export const CartSidebar = () => {
           <div className="border-t p-4 space-y-4">
             <div className="flex justify-between font-semibold">
               <span>Total:</span>
-              <span>{formatValueToPrice(totalPrice)}</span>
+              <span className="text-money">
+                {formatValueToPrice(totalPrice)}
+              </span>
             </div>
 
             <div className="flex gap-2">
               <Button
+                text="Limpar carrinho"
                 onClick={clearCart}
-                variant="outline"
-                className="flex-1"
+                variant={{ variant: "ghost" }}
                 disabled={products.length === 0}
-              >
-                Limpar carrinho
-              </Button>
+              />
 
-              <Button className="flex-1 gap-2">
-                Finalizar compra
-                <ArrowRight className="w-4 h-4" />
-              </Button>
+              <Button
+                Icon={ArrowRight}
+                iconPosition="right"
+                variant={{ size: "md" }}
+                text="Finalizar compra"
+                onClick={() => navigate("/checkout")}
+              />
             </div>
           </div>
         )}

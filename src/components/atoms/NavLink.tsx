@@ -1,47 +1,42 @@
-import { Link, useMatch } from "react-router-dom";
-import { cn } from "@/lib/utils";
-import {
-  navLinkVariants,
-  type IconPositionNavLink,
-  type NavLinkVariant,
-} from "@/lib/class-variants";
-import type React from "react";
+import { Link } from "react-router-dom";
 import type { LucideIcon } from "lucide-react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
+
+const navLinkVariants = cva("transition-colors duration-200", {
+  variants: {
+    variant: {
+      default: "text-navlink-button hover:text-navlink-button-hover",
+    },
+    size: {
+      sm: "w-4 h-4",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    size: "sm",
+  },
+});
 
 type NavLinkProps = {
   to: string;
-  variant?: NavLinkVariant["variant"];
-  icon?: LucideIcon;
-  iconPosition?: IconPositionNavLink;
+  ariaLabel: string;
+  variant?: VariantProps<typeof navLinkVariants>;
+  icon: LucideIcon;
   iconClassName?: string;
-  children?: React.ReactNode;
-  className?: string;
   onClick?: () => void;
 };
 
 export const NavLink = ({
   to,
+  ariaLabel,
   variant,
   icon: Icon,
-  iconPosition = "left",
-  iconClassName = "w-4 h-4",
-  children,
-  className,
   onClick,
 }: NavLinkProps) => {
-  const match = useMatch(to);
-  const isActive = match?.pathname === to;
-
   return (
-    <Link
-      to={to}
-      onClick={onClick}
-      className={cn(navLinkVariants({ variant, iconPosition, className }))}
-      data-active={isActive}
-      aria-current={isActive ? "page" : undefined}
-    >
-      {Icon && <Icon className={cn(iconClassName)} aria-hidden="true" />}
-      {children}
+    <Link to={to} onClick={onClick} aria-label={ariaLabel}>
+      <Icon className={cn(navLinkVariants(variant))} />
     </Link>
   );
 };

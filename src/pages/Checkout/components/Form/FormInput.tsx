@@ -6,7 +6,7 @@ const formInputVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-sm border-none bg-gray-200",
+        default: "text-sm border-none bg-background-primary",
         error: "text-sm border-accent bg-accent",
         success: "text-sm border-green-500 bg-green-50",
       },
@@ -72,7 +72,7 @@ export const FormInput = ({
           error && "border-accent"
         )}
       />
-      {error && <p className="text-sm text-red-600 mt-1">{error}</p>}
+      {error && <p className="text-sm text-accent mt-1">{error}</p>}
     </div>
   );
 };

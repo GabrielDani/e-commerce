@@ -1,64 +1,60 @@
 @import "tailwindcss";
 
 @theme {
-  /* Planos de fundo */
-  --color-background-primary: #e7e7e7; /* usado no header, botões principais */
-  --color-background-primary-dark: #b9defe; /* usado no modo escuro para contraste */
+  --color-background-header: #f7fafc;
+  --color-background-primary: #f1f5f9;
+  --color-background-card: #f7fafc;
+  --color-border-card: #adadad;
 
-  --color-background-secondary: #f6f6f6; /* Destaques secundários, CTAs */
-  --color-background-secondary-dark: #2332b6; /* Versão mais suave em dark */
+  --color-navlink-button: #11212c;
+  --color-navlink-button-hover: #4f8fba;
 
-  --color-background-header: #61bcf9;
-  --color-background-header-dark: #1f4a89;
+  --color-background-button-add-cart: #5e72e4;
+  --color-background-button-add-cart-hover: #4a5ed0;
+  --color-background-button-remove-cart: #e53e3e;
+  --color-background-button-remove-cart-hover: #c53030;
 
-  --color-background-button: #61bcf9;
-  --color-background-button-dark: #3c9ef5;
+  --color-background-button-filter: #e3e8ee;
+  --color-background-button-filter-hover: #d1d8e0;
+  --color-background-button-filter-selected: #5e72e4;
 
-  --color-hover-background-button: #3c9ef5;
-  --color-hover-background-button-dark: #94d5fc;
+  --color-primary: #2d3748;
+  --color-secondary: #4a5568;
 
-  --color-surface: #c8c8c8; /* Cards, inputs, modais */
-  --color-surface-dark: #07284a; /* fundo de cards em dark */
+  --color-money: #059669;
 
-  --color-selected-radio: #2332b6;
-  --color-selected-radio-dark: #2332b6;
-
-  /* Neutros e bordas */
-  --color-neutral: #7c7c7c; /* Separadores e hovers leves */
-  --color-neutral-dark: #0a3f70; /* Neutral em dark (coerente com bg) */
-
-  --color-border: #adadad; /* Bordas sutis */
-  --color-border-dark: #b9defe; /* Versão visível em fundo escuro */
-
-  /* Tipografia */
-  --color-primary: #262626; /* Texto principal */
-  --color-primary-dark: #3d3d3d; /* texto claro no dark */
-
-  --color-secondary: #3d3d3d; /* Textos de apoio */
-  --color-secondary-dark: #dfeeff; /* leve contraste */
-
-  --color-ghost: #5d5d5d; /* discreto, leitura reduzida */
-  --color-ghost-dark: #b9defe; /* suave, visível sobre fundo escuro */
-
-  --color-accent: #e63946; /* Erros, alertas, badges */
-  --color-accent-dark: #f87171; /* Versão em dark */
-
-  --color-inverse: #f6f6f6; /* Texto sobre fundo escuro */
-  --color-inverse-dark: #07284a; /* Texto escuro sobre tons claros */
-
-  /* Hover para texto */
-  --color-hover-primary: #3c9ef5;
-  --color-hover-primary-dark: #91cfff;
-
-  --color-hover-secondary: #94d5fc;
-  --color-hover-secondary-dark: #4e5cd1;
-
-  --color-hover-accent: #c53030;
-  --color-hover-accent-dark: #fb5f5f;
-
-  --color-hover-ghost: #dbeffe;
-  --color-hover-ghost-dark: #e5efff;
-
-  --color-hover-muted: #9ca3af;
-  --color-hover-muted-dark: #cbd5e1;
+  --color-ghost: #a0aec0;
+  --color-accent: #5e72e4;
+  --color-muted: #8c98a4;
 }
+
+/* @theme {
+  --color-background-header: #F7FAFC;
+  --color-background-primary: #FFFFFF;
+  --color-background-card: #F7FAFC;
+
+  --color-background-button-add-cart: #5E72E4;
+  --color-background-button-add-cart-hover: #4A5ED0;
+  
+  --color-background-button-buy: #38B2AC;
+  --color-background-button-buy-hover: #2C9C96;
+  
+  --color-background-button-filter: #E3E8EE;
+  --color-background-button-filter-hover: #D1D8E0;
+
+  --color-border-card: #E3E8EE;
+
+  --color-primary: #2D3748;
+  --color-secondary: #4A5568;
+  --color-money: #38B2AC;
+  --color-ghost: #A0AEC0;
+  --color-accent: #5E72E4;
+  --color-muted: #8C98A4;
+
+  --color-hover-primary: #1A202C;
+  --color-hover-secondary: #2D3748;
+  --color-hover-money: #2C9C96;
+  --color-hover-accent: #4A5ED0;
+  --color-hover-ghost: #718096;
+  --color-hover-muted: #6B7885;
+} */

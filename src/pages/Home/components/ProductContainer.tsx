@@ -1,3 +1,4 @@
+import { Card } from "@/components/atoms/Card";
 import { ProductCard } from "@/components/molecules/ProductCard/ProductCard";
 import { catalog } from "@/data/catalog";
 
@@ -19,13 +20,17 @@ export function ProductContainer({ searchParams }: ProductContainerProps) {
   });
 
   return (
-    <section className="flex flex-wrap mx-auto p-10 justify-center gap-10">
+    <section className="flex flex-wrap mx-auto mt-10 justify-center gap-10">
       {filteredProducts.length > 0 ? (
         filteredProducts.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))
       ) : (
-        <p className="text-center w-full">Nenhum produto encontrado</p>
+        <Card variants={{ size: "container" }}>
+          <h1 className="mt-10 text-center font-bold text-base">
+            Nenhum produto encontrado
+          </h1>
+        </Card>
       )}
     </section>
   );

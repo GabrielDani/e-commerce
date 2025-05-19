@@ -5,9 +5,6 @@ import NotFound from "@/pages/NotFound";
 import Loader from "@/pages/Loader";
 
 const Home = lazy(() => import("@/pages/Home/Home"));
-const PurchaseHistory = lazy(
-  () => import("@/pages/PurchaseHistory/PurchaseHistory")
-);
 const Checkout = lazy(() => import("@/pages/Checkout/Checkout"));
 
 const withSuspense = (element: React.ReactNode) => (
@@ -22,10 +19,6 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: withSuspense(<Home />),
-      },
-      {
-        path: "/purchase",
-        element: withSuspense(<PurchaseHistory />),
       },
       {
         path: "/checkout",
