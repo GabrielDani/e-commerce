@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import type { InputHTMLAttributes } from "react";
 
 const formInputVariants = cva(
   "px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-hover-primary transition-colors",
@@ -23,54 +24,34 @@ const formInputVariants = cva(
   }
 );
 
-interface FormInputProps {
+interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   label: string;
-  placeholder: string;
-  type: "text" | "password" | "email";
-  required?: boolean;
   variants?: VariantProps<typeof formInputVariants>;
-  wrapperClassName?: string;
-  labelClassName?: string;
   error?: string;
 }
 
 export const FormInput = ({
   id,
   label,
-  placeholder,
-  type,
-  required = false,
   variants = {},
-  wrapperClassName,
-  labelClassName,
   error,
+  ...props
 }: FormInputProps) => {
   return (
-    <div className={cn("space-y-2", wrapperClassName)}>
+    <div className={cn("space-y-2")}>
       {label && (
         <label
           htmlFor={id}
-          className={cn(
-            "block text-sm font-medium text-primary",
-            labelClassName
-          )}
+          className={cn("block text-sm font-medium text-primary")}
         >
           {label}
         </label>
       )}
       <input
         id={id}
-        type={type}
-        placeholder={placeholder}
-        required={required}
-        className={cn(
-          formInputVariants({
-            variant: variants.variant,
-            size: variants.size,
-          }),
-          error && "border-accent"
-        )}
+        className={cn(formInputVariants(variants), error && "border-accent")}
+        {...props}
       />
       {error && <p className="text-sm text-accent mt-1">{error}</p>}
     </div>
