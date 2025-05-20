@@ -1,0 +1,26 @@
+# Ignorar arquivos de teste
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Ignorar configurações de desenvolvimento
+.env.local
+.env.development
+.env.test
+
+# Ignorar arquivos do IDE
+.idea/
+.vscode/
+
+# Ignorar arquivos do sistema
+.DS_Store
+
+# Ignorar logs e relatórios de testes
+coverage/
+jest.config.js
+vitest.config.ts
+
+# Ignorar arquivos desnecessários para produção
+*.md
+*.log
